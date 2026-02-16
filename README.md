@@ -155,6 +155,7 @@ THE-COHERENCE-BENCHMARK/
 ├── .github/                   # CI + templates
 ├── index.html                 # Interactive dashboard (GitHub Pages)
 └── Coherence_Benchmark_Paper.html  # Academic paper
+| [EXECUTIVE-SUMMARY.md](EXECUTIVE-SUMMARY.md) | Build report + responses from all 4 AI collaborators |
 ```
 
 ## Documentation
