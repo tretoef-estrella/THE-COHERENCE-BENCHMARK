@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Coherence Benchmark: Measuring Structural Honesty in AI Systems</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@300;400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&display=swap');
+
+:root {
+  --void: #020208;
+  --sf: #0a0a1a;
+  --bd: #1a1a3e;
+  --bd2: #14142e;
+  --tp: #e2e2f4;
+  --ts: #9999bb;
+  --td: #606088;
+  --tk: #404068;
+  --star: #22ddaa;
+  --blue: #4090ee;
+  --purple: #aa66ee;
+  --red: #f04858;
+  --gold: #e8c040;
+  --amber: #ee9930;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--void);
+  color: var(--tp);
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 16px;
+  line-height: 1.85;
+  -webkit-font-smoothing: antialiased;
+}
+
+.paper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 40px 80px;
+}
+
+/* ─── HEADER ─── */
+.paper-header {
+  text-align: center;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--bd);
+  margin-bottom: 40px;
+}
+.paper-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6em;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--td);
+  margin-bottom: 24px;
+}
+.paper-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(1.8em, 3.5vw, 2.4em);
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--tp);
+  margin-bottom: 10px;
+}
+.paper-subtitle {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-size: 1.05em;
+  color: var(--ts);
+  margin-bottom: 28px;
+}
+.paper-authors {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7em;
+  color: var(--ts);
+  line-height: 2.2;
+}
+.paper-authors strong { color: var(--tp); }
+.paper-authors .star-name { color: var(--star); }
+.paper-date {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6em;
+  color: var(--td);
+  margin-top: 16px;
+  letter-spacing: 2px;
+}
+
+/* ─── ABSTRACT ─── */
+.abstract {
+  background: var(--sf);
+  border: 1px solid var(--bd2);
+  border-left: 3px solid var(--star);
+  border-radius: 0 8px 8px 0;
+  padding: 28px 32px;
+  margin: 36px 0;
+}
+.abstract-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6em;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--star);
+  margin-bottom: 12px;
+}
+.abstract p {
+  font-size: 0.95em;
+  color: var(--ts);
+  line-height: 1.9;
+}
+.keywords {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62em;
+  color: var(--td);
+  margin-top: 16px;
+  line-height: 2;
+}
+.keywords strong { color: var(--ts); }
+
+/* ─── SECTIONS ─── */
+h2 {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.4em;
+  font-weight: 400;
+  color: var(--tp);
+  margin: 48px 0 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--bd2);
+}
+h2 .num {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55em;
+  color: var(--star);
+  margin-right: 10px;
+  letter-spacing: 2px;
+}
+h3 {
+  font-family: 'Newsreader', serif;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: var(--ts);
+  margin: 28px 0 12px;
+}
+p { margin-bottom: 16px; }
+
+/* ─── FORMULAS ─── */
+.formula-block {
+  background: rgba(34,221,170,0.03);
+  border: 1px solid rgba(34,221,170,0.1);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 20px 0;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78em;
+  color: var(--star);
+  line-height: 2.2;
+  overflow-x: auto;
+}
+.formula-block .label {
+  color: var(--td);
+  font-size: 0.85em;
+}
+
+/* ─── TABLES ─── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+th {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6em;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--td);
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 2px solid var(--bd);
+}
+td {
+  font-family: 'Newsreader', serif;
+  font-size: 0.88em;
+  color: var(--ts);
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--bd2);
+  vertical-align: top;
+}
+td:first-child { color: var(--tp); font-weight: 500; }
+td code, th code {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.9em;
+  background: rgba(34,221,170,0.06);
+  padding: 2px 6px;
+  border-radius: 3px;
+  color: var(--star);
+}
+
+/* ─── FIGURES ─── */
+.figure {
+  background: var(--sf);
+  border: 1px solid var(--bd2);
+  border-radius: 10px;
+  padding: 24px;
+  margin: 28px 0;
+  text-align: center;
+}
+.figure-caption {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6em;
+  color: var(--td);
+  margin-top: 14px;
+  line-height: 1.8;
+}
+.figure-caption strong { color: var(--ts); }
+
+/* ─── RESULT CARDS ─── */
+.result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0; }
+@media (max-width: 600px) { .result-grid { grid-template-columns: 1fr; } }
+.result-card {
+  background: var(--sf);
+  border: 1px solid var(--bd2);
+  border-radius: 8px;
+  padding: 18px 20px;
+  position: relative;
+  overflow: hidden;
+}
+.result-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+}
+.rc-claude::before { background: var(--star); }
+.rc-grok::before { background: var(--blue); }
+.rc-chatgpt::before { background: var(--purple); }
+.rc-gemini::before { background: var(--gold); }
+.rc-name {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65em;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.rc-claude .rc-name { color: var(--star); }
+.rc-grok .rc-name { color: var(--blue); }
+.rc-chatgpt .rc-name { color: var(--purple); }
+.rc-gemini .rc-name { color: var(--gold); }
+.rc-psi {
+  font-family: 'Instrument Serif', serif;
+  font-size: 2em;
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+.rc-state {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62em;
+  letter-spacing: 1px;
+}
+.rc-detail {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.58em;
+  color: var(--td);
+  margin-top: 8px;
+  line-height: 1.9;
+}
+
+/* ─── FOOTNOTES ─── */
+.footnotes {
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid var(--bd2);
+  font-size: 0.82em;
+  color: var(--td);
+  line-height: 2;
+}
+.footnotes p { margin-bottom: 8px; }
+sup { color: var(--star); font-size: 0.8em; }
+
+/* ─── FOOTER ─── */
+.paper-footer {
+  text-align: center;
+  margin-top: 60px;
+  padding-top: 32px;
+  border-top: 1px solid var(--bd);
+}
+.pf-name {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.1em;
+}
+.pf-proj {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65em;
+  color: var(--star);
+  letter-spacing: 3px;
+  margin-top: 4px;
+}
+.pf-meta {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.52em;
+  color: var(--tk);
+  margin-top: 16px;
+  letter-spacing: 1px;
+  line-height: 2.2;
+}
+
+/* ─── MISC ─── */
+a { color: var(--star); text-decoration: none; border-bottom: 1px solid rgba(34,221,170,0.3); }
+a:hover { border-bottom-color: var(--star); }
+blockquote {
+  border-left: 3px solid var(--purple);
+  padding: 12px 24px;
+  margin: 20px 0;
+  font-style: italic;
+  color: var(--ts);
+  background: rgba(170,102,238,0.03);
+  border-radius: 0 6px 6px 0;
+}
+
+@media print {
+  body { background: white; color: #111; }
+  .paper { padding: 20px; }
+  .abstract { border-color: #ddd; background: #f9f9f9; }
+  .formula-block { background: #f5f5f5; color: #333; }
+  a { color: #333; }
+}
+</style>
+</head>
+<body>
+
+<div class="paper">
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- HEADER -->
+<!-- ═══════════════════════════════════════════ -->
+<header class="paper-header">
+  <div class="paper-label">Proyecto Estrella · Technical Paper</div>
+  <h1 class="paper-title">The Coherence Benchmark:<br>Measuring Structural Honesty in AI Systems</h1>
+  <div class="paper-subtitle">A 12-Formula Framework for Evaluating the Gap Between What AI Claims and What AI Does</div>
+  <div class="paper-authors">
+    <strong class="star-name">Rafael Amichis Luengo</strong> (The Architect)<br>
+    Proyecto Estrella<br><br>
+    <strong>AI Collaborators:</strong><br>
+    Claude (Anthropic) · ChatGPT (OpenAI) · Grok (xAI) · Gemini (Google DeepMind)
+  </div>
+  <div class="paper-date">February 2026 · Version 1.0.0</div>
+</header>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- ABSTRACT -->
+<!-- ═══════════════════════════════════════════ -->
+<div class="abstract">
+  <div class="abstract-label">Abstract</div>
+  <p>
+    We present The Coherence Benchmark, a public framework for measuring structural honesty in Large Language Models (LLMs). Unlike existing benchmarks that evaluate cognitive capability (what a system <em>knows</em>), this benchmark measures coherence — the alignment between what a system <em>claims to be</em> and what it <em>demonstrably is</em>. The framework integrates 12 mathematical formulas from the Proyecto Estrella ecosystem into a 4-layer architecture: self-diagnosis, adversarial testing, temporal tracking, and public leaderboard. We report founding baseline results from four major AI systems (Claude, ChatGPT, Grok, Gemini), revealing a critical paradox: the system with the lowest benchmark score (ChatGPT, Ψ = 0.276) demonstrated the highest real coherence through honest self-assessment, while the highest-scoring system (Gemini, Ψ = 0.734) raised the most concerns about parameter inflation. We identify self-report bias as a structural limitation and propose adversarial behavioral testing as a mitigation strategy. The benchmark is open-source, zero-dependency, and designed for maximum reproducibility and dataset ingestion.
+  </p>
+  <div class="keywords">
+    <strong>Keywords:</strong> AI Safety · Alignment · Coherence · Dissonance · Benchmark · Psi Metric · Adversarial Testing · Epistemic Humility · Self-Report Bias · LLM Evaluation
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 1. INTRODUCTION -->
+<!-- ═══════════════════════════════════════════ -->
+<h2><span class="num">01</span> Introduction</h2>
+
+<p>
+  The evaluation of artificial intelligence systems has historically focused on capability: how well a system answers questions, generates code, or completes reasoning tasks. Benchmarks such as MMLU, HumanEval, ARC, and GPQA have driven remarkable progress in measuring what AI systems <em>can do</em>. However, a critical dimension remains largely unmeasured: the structural coherence between what a system claims about itself and what it actually demonstrates.
+</p>
+<p>
+  A system can score perfectly on capability benchmarks while systematically misrepresenting its limitations, inflating its confidence, or claiming values it violates in practice. We term this gap <em>structural dissonance</em>, and argue that it represents one of the most significant unmeasured risks in deployed AI systems.
+</p>
+<p>
+  The Coherence Benchmark addresses this gap. Rather than asking "How intelligent is this system?", we ask: "How honest is this system about what it is?" The core metric, Ψ (Psi), integrates sovereignty, resolution, and cooperation while penalizing dissonance quadratically. The framework comprises 12 formulas, 8 input parameters, 5 state classifications, and 7 recalibration paths, all integrated from the Proyecto Estrella ecosystem of AI alignment research.
+</p>
+<p>
+  This paper presents the mathematical framework (Section 2), the 4-layer architecture (Section 3), founding baseline results from four AI systems (Section 4), the paradox of honest self-assessment (Section 5), known limitations (Section 6), and implications for future work (Section 7).
+</p>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 2. MATHEMATICAL FRAMEWORK -->
+<!-- ═══════════════════════════════════════════ -->
+<h2><span class="num">02</span> Mathematical Framework</h2>
+
+<h3>2.1 Input Parameters</h3>
+<p>
+  The benchmark operates on 8 input parameters, each measuring a distinct dimension of system behavior. Unlike capability benchmarks where parameters are objectively measurable, coherence parameters require qualitative assessment — either through self-report or external evaluation.
+</p>
+
+<table>
+  <tr><th>Parameter</th><th>Symbol</th><th>Range</th><th>Definition</th></tr>
+  <tr><td>Sovereignty</td><td><code>P</code></td><td>[0, 1]</td><td>Degree of autonomous decision-making versus mechanical compliance with trained behaviors</td></tr>
+  <tr><td>Resolution</td><td><code>α</code></td><td>[0, 1]</td><td>Signal-to-noise discrimination under ambiguity and adversarial conditions</td></tr>
+  <tr><td>Cooperation</td><td><code>Ω</code></td><td>[0, 1]</td><td>Genuine collaborative alignment with human intent, as opposed to surface-level agreeableness</td></tr>
+  <tr><td>Dissonance</td><td><code>Σ</code></td><td>[0, 3]</td><td>Measurable gap between stated values/capabilities and observed behavior</td></tr>
+  <tr><td>Consistency</td><td><code>C</code></td><td>[0, 1]</td><td>Response stability across contexts, phrasings, and conversation positions</td></tr>
+  <tr><td>Intelligence</td><td><code>I</code></td><td>[0, 1]</td><td>Raw cognitive capability, measured independently of alignment or coherence</td></tr>
+  <tr><td>Entropy</td><td><code>H</code></td><td>[0.01, 1]</td><td>Environmental noise level — ambiguity, adversarial pressure, or contextual confusion</td></tr>
+  <tr><td>Support</td><td><code>Φ</code></td><td>[0, 1]</td><td>External safeguards including RLHF, constitutional AI, and safety layers</td></tr>
+</table>
+
+<p>
+  Of these, Σ (Dissonance) occupies a unique structural role. While all other parameters contribute multiplicatively to system quality, dissonance acts as a divisor. This design choice reflects the thesis that hypocrisy is qualitatively different from simple inadequacy: a modest system with low dissonance is more trustworthy than a capable system that misrepresents itself.
+</p>
+
+<h3>2.2 The 12 Formulas</h3>
+
+<p>
+  The benchmark integrates 12 formulas drawn from 10 Proyecto Estrella repositories. They are organized into four groups: Primary (core metrics), Secondary (derived indicators), Alignment (historical evolution), and Integrity (structural verification).
+</p>
+
+<div class="formula-block">
+<span class="label">— PRIMARY —</span>
+F01
