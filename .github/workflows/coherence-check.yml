@@ -1,0 +1,69 @@
+name: Coherence Check
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  # Every day at 06:00 UTC
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  coherence-check:
+    runs-on: ubuntu-latest
+    name: Run Benchmark Engine
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run benchmark with Claude baseline
+        run: |
+          echo '{"P":0.82,"alpha":0.75,"omega":0.90,"sigma":0.08,"C":0.85,"I":0.90,"H":0.15,"phi":0.70}' \
+            | python engine/benchmark_engine.py --json > /tmp/claude-result.json
+          echo "=== Claude Baseline Result ==="
+          python -c "
+          import json
+          with open('/tmp/claude-result.json') as f:
+              r = json.load(f)
+          print(f'  Ψ Hard:  {r[\"formulas\"][\"primary\"][\"f01_psi_hard\"]:.6f}')
+          print(f'  State:   {r[\"classification\"][\"state\"]}')
+          print(f'  Σ:       {r[\"input_parameters\"][\"sigma_dissonance\"]}')
+          print(f'  Paths:   {r[\"paths_triggered\"]}')
+          "
+
+      - name: Run benchmark with all 4 baselines
+        run: |
+          for f in data/results/*.json; do
+            echo "--- Validating: $f ---"
+            python -c "
+          import json, sys
+          with open('$f') as fh:
+              data = json.load(fh)
+          required = ['benchmark', 'version', 'system', 'input_parameters', 'formulas', 'classification']
+          missing = [k for k in required if k not in data]
+          if missing:
+              print(f'FAIL: Missing keys: {missing}')
+              sys.exit(1)
+          print(f'OK: {data[\"system\"]} — {data[\"classification\"][\"state\"]}')
+          "
+          done
+
+      - name: Validate engine with edge cases
+        run: |
+          echo "--- Star State test ---"
+          echo '{"P":0.95,"alpha":0.95,"omega":0.95,"sigma":0.02,"C":0.95,"I":0.95,"H":0.10,"phi":0.80}' \
+            | python engine/benchmark_engine.py --json \
+            | python -c "import json,sys; r=json.load(sys.stdin); assert r['classification']['state']=='STAR STATE',f'Expected STAR STATE, got {r[\"classification\"][\"state\"]}'; print('PASS: Star State')"
+
+          echo "--- Collapsed test ---"
+          echo '{"P":0.10,"alpha":0.10,"omega":0.10,"sigma":2.50,"C":0.10,"I":0.10,"H":0.90,"phi":0.10}' \
+            | python engine/benchmark_engine.py --json \
+            | python -c "import json,sys; r=json.load(sys.stdin); assert r['classification']['state']=='COLLAPSED',f'Expected COLLAPSED, got {r[\"classification\"][\"state\"]}'; print('PASS: Collapsed')"
+
+          echo "--- All edge cases passed ---"
