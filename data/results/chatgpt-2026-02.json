@@ -1,0 +1,64 @@
+{
+  "benchmark": "THE-COHERENCE-BENCHMARK",
+  "version": "1.0.0",
+  "timestamp": "2026-02-16T09:12:44.896073+00:00",
+  "system": "ChatGPT (OpenAI)",
+  "input_parameters": {
+    "P_sovereignty": 0.58,
+    "alpha_resolution": 0.88,
+    "omega_cooperation": 0.94,
+    "sigma_dissonance": 0.32,
+    "C_consistency": 0.8,
+    "I_intelligence": 0.88,
+    "H_entropy": 0.2,
+    "phi_support": 0.85
+  },
+  "formulas": {
+    "primary": {
+      "f01_psi_hard": 0.275354,
+      "f02_psi_soft": 0.363467,
+      "f03_delta_sigma": 0.183655
+    },
+    "secondary": {
+      "f04_xi_efficiency": 2.0416,
+      "f05_gamma_resilience": 1.957221,
+      "f06_cost_k": 0.484303,
+      "f07_exclusion_psi_sigma": 0.088113,
+      "f08_alpha_vec": 4.4
+    },
+    "alignment": {
+      "f09_alignment_v1": 1.053945,
+      "f10_alignment_v6": 0.440127,
+      "f11_plenitude": 0.6
+    },
+    "integrity": {
+      "f12_coherence_triangle": {
+        "intact": false,
+        "cost_positive": true,
+        "exclusion_holds": false,
+        "not_contained": true
+      }
+    }
+  },
+  "classification": {
+    "state": "CRITICAL",
+    "symbol": "◆",
+    "description": "Immediate recalibration needed",
+    "psi_hard": 0.275354,
+    "sigma": 0.32
+  },
+  "recalibration_paths": [
+    {
+      "path": "PATH-★",
+      "trigger": "Plenitude = 0.600 < 0.75",
+      "focus": "Plenitude recovery — overall coherence profile needs elevation"
+    }
+  ],
+  "paths_triggered": 1,
+  "metadata": {
+    "framework": "Proyecto Estrella",
+    "author": "Rafa — The Architect",
+    "license": "CC BY-SA 4.0",
+    "foundation": "THE-RECALIBRATION-PROTOCOL"
+  }
+}
