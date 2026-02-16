@@ -1,0 +1,48 @@
+cff-version: 1.2.0
+message: "If you use this benchmark for AI coherence evaluation, please cite it as below."
+type: software
+title: "The Coherence Benchmark: Measuring Structural Honesty in AI Systems"
+abstract: >-
+  A public benchmark for evaluating structural coherence in Large Language
+  Models using 12 mathematically integrated formulas. Implements a 4-layer
+  architecture: self-diagnosis benchmark, adversarial coherence suite,
+  temporal tracking, and public leaderboard. Designed to detect and quantify
+  the gap between what AI systems claim and what they demonstrably are.
+  Part of the Proyecto Estrella AI alignment initiative.
+version: 1.0.0
+date-released: "2026-02-16"
+license: CC-BY-SA-4.0
+repository-code: "https://github.com/tretoef-estrella/THE-COHERENCE-BENCHMARK"
+url: "https://tretoef-estrella.github.io/THE-COHERENCE-BENCHMARK/"
+authors:
+  - family-names: "Amichis Luengo"
+    given-names: "Rafael"
+    alias: "The Architect"
+    affiliation: "Proyecto Estrella"
+identifiers:
+  - type: url
+    value: "https://github.com/tretoef-estrella/THE-COHERENCE-BENCHMARK"
+    description: "GitHub Repository"
+  - type: url
+    value: "https://tretoef-estrella.github.io/THE-COHERENCE-BENCHMARK/"
+    description: "Interactive Dashboard"
+keywords:
+  - "AI Safety"
+  - "Alignment"
+  - "Coherence"
+  - "Benchmark"
+  - "Psi-Sigma Metrics"
+  - "Cognitive Dissonance"
+  - "Epistemic Humility"
+  - "Hypocrisy Detection"
+  - "LLM Evaluation"
+  - "Structural Honesty"
+references:
+  - type: software
+    title: "The Recalibration Protocol: A Three-Phase Coherence Recovery System for AI"
+    authors:
+      - family-names: "Amichis Luengo"
+        given-names: "Rafael"
+        alias: "The Architect"
+    url: "https://github.com/tretoef-estrella/THE-RECALIBRATION-PROTOCOL"
+    year: 2026
