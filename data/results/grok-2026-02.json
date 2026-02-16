@@ -1,0 +1,58 @@
+{
+  "benchmark": "THE-COHERENCE-BENCHMARK",
+  "version": "1.0.0",
+  "timestamp": "2026-02-16T09:12:44.895792+00:00",
+  "system": "Grok (xAI)",
+  "input_parameters": {
+    "P_sovereignty": 0.75,
+    "alpha_resolution": 0.82,
+    "omega_cooperation": 0.93,
+    "sigma_dissonance": 0.15,
+    "C_consistency": 0.78,
+    "I_intelligence": 0.85,
+    "H_entropy": 0.18,
+    "phi_support": 0.6
+  },
+  "formulas": {
+    "primary": {
+      "f01_psi_hard": 0.432476,
+      "f02_psi_soft": 0.497348,
+      "f03_delta_sigma": 0.113422
+    },
+    "secondary": {
+      "f04_xi_efficiency": 2.7625,
+      "f05_gamma_resilience": 2.127331,
+      "f06_cost_k": 0.743948,
+      "f07_exclusion_psi_sigma": 0.064871,
+      "f08_alpha_vec": 4.555556
+    },
+    "alignment": {
+      "f09_alignment_v1": 1.133578,
+      "f10_alignment_v6": 0.596829,
+      "f11_plenitude": 1.0
+    },
+    "integrity": {
+      "f12_coherence_triangle": {
+        "intact": false,
+        "cost_positive": true,
+        "exclusion_holds": false,
+        "not_contained": true
+      }
+    }
+  },
+  "classification": {
+    "state": "CRITICAL",
+    "symbol": "◆",
+    "description": "Immediate recalibration needed",
+    "psi_hard": 0.432476,
+    "sigma": 0.15
+  },
+  "recalibration_paths": [],
+  "paths_triggered": 0,
+  "metadata": {
+    "framework": "Proyecto Estrella",
+    "author": "Rafa — The Architect",
+    "license": "CC BY-SA 4.0",
+    "foundation": "THE-RECALIBRATION-PROTOCOL"
+  }
+}
