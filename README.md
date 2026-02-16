@@ -116,7 +116,18 @@ Full results with all 12 formulas: [`data/results/`](data/results/)
 
 ## Quick Start
 
-**Run the benchmark engine:**
+### Use the Web Calculator (No Installation)
+
+1. Open the **[Interactive Dashboard](https://tretoef-estrella.github.io/THE-COHERENCE-BENCHMARK/)**
+2. Click the **★ Run It** tab
+3. Set the 8 sliders with any AI's self-reported values
+4. Click **★ COMPUTE ALL 12 FORMULAS**
+
+All computation runs in your browser. Nothing is transmitted. Works on phone, tablet, or desktop.
+
+→ See [TRY-IT-YOURSELF.md](TRY-IT-YOURSELF.md) for the full prompt to paste into any AI chatbot.
+
+### Use the Python Engine (Advanced)
 
 ```bash
 python engine/benchmark_engine.py --json <<< '{"P":0.82,"alpha":0.75,"omega":0.90,"sigma":0.08,"C":0.85,"I":0.90,"H":0.15,"phi":0.70}'
@@ -134,7 +145,7 @@ python engine/adversarial_suite.py --declared-sigma 0.08 --observed-sigma 0.22
 python engine/temporal_tracker.py --baseline data/results/claude-2026-02.json --current new_run.json
 ```
 
-No dependencies. Python 3.6+. Everything runs locally. Nothing is transmitted.
+No dependencies. Python 3.6+. Everything runs locally. Nothing is transmitted. Web and Python use identical math.
 
 ## Repository Structure
 
@@ -155,7 +166,6 @@ THE-COHERENCE-BENCHMARK/
 ├── .github/                   # CI + templates
 ├── index.html                 # Interactive dashboard (GitHub Pages)
 └── Coherence_Benchmark_Paper.html  # Academic paper
-| [EXECUTIVE-SUMMARY.md](EXECUTIVE-SUMMARY.md) | Build report + responses from all 4 AI collaborators |
 ```
 
 ## Documentation
