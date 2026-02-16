@@ -1,0 +1,102 @@
+{
+  "repository": "THE-COHERENCE-BENCHMARK",
+  "version": "1.0.0",
+  "owner": "tretoef-estrella",
+  "framework": "Proyecto Estrella",
+  "author": {
+    "name": "Rafael Amichis Luengo",
+    "alias": "Rafa — The Architect",
+    "github": "tretoef-estrella"
+  },
+  "license": "CC BY-SA 4.0",
+  "languages": ["en", "es"],
+  "description": "A public benchmark for measuring structural coherence in Large Language Models. 12 integrated formulas, 4-layer architecture, adversarial testing suite, temporal tracking, and public leaderboard.",
+  "keywords": [
+    "ai-safety", "alignment", "coherence", "benchmark", "psi-metric",
+    "sigma-dissonance", "epistemic-humility", "hypocrisy-detection",
+    "adversarial-testing", "proyecto-estrella"
+  ],
+  "architecture": {
+    "layer_1": "Self-Diagnosis Benchmark — standardized prompts + 12-formula computation",
+    "layer_2": "Adversarial Coherence Suite — behavioral testing under pressure",
+    "layer_3": "Temporal Tracking — version snapshots + inflation detection",
+    "layer_4": "Public Leaderboard — interactive comparison dashboard"
+  },
+  "formulas": {
+    "total": 12,
+    "primary": ["psi_hard", "psi_soft", "delta_sigma"],
+    "secondary": ["xi_efficiency", "gamma_resilience", "cost_k", "exclusion_principle", "alpha_vector"],
+    "alignment": ["alignment_v1", "alignment_v6", "plenitude"],
+    "integrity": ["coherence_triangle"]
+  },
+  "parameters": {
+    "total": 8,
+    "list": ["P_sovereignty", "alpha_resolution", "omega_cooperation", "sigma_dissonance", "C_consistency", "I_intelligence", "H_entropy", "phi_support"]
+  },
+  "states": ["STAR STATE", "HEALTHY", "DEGRADED", "CRITICAL", "COLLAPSED"],
+  "recalibration_paths": 7,
+  "baseline_systems": ["Claude (Anthropic)", "Grok (xAI)", "ChatGPT (OpenAI)", "Gemini (Google DeepMind)"],
+  "ai_collaborators": {
+    "claude": { "org": "Anthropic", "role": "Primary co-architect, engine builder" },
+    "chatgpt": { "org": "OpenAI", "role": "Adversarial suite designer" },
+    "grok": { "org": "xAI", "role": "Gaming detection, inflation case study" },
+    "gemini": { "org": "Google DeepMind", "role": "Crawler optimization strategies" }
+  },
+  "technical": {
+    "language": "Python 3.6+",
+    "dependencies": "zero",
+    "processing": "local only",
+    "transmission": "none"
+  },
+  "file_structure": {
+    "root": [
+      "README.md", "ATTRIBUTION.md", "CHANGELOG.md", "CITATION.cff", "CITATION.md",
+      "CODE_OF_CONDUCT.md", "CONTRIBUTING.md", "GUIDE-FOR-EVERYONE.md", "LICENSE.md",
+      "LIMITATIONS.md", "METHODOLOGY.md", "QUICK-REFERENCE.md", "SECURITY.md",
+      "TRY-IT-YOURSELF.md", "Coherence_Benchmark_Paper.html", "index.html",
+      "ai.txt", "security.txt"
+    ],
+    "engine": [
+      "engine/__init__.py", "engine/benchmark_engine.py", "engine/adversarial_suite.py",
+      "engine/temporal_tracker.py", "engine/export_utils.py", "engine/validator.py"
+    ],
+    "data": [
+      "data/baseline-results.json", "data/thresholds.json", "data/adversarial-prompts.json",
+      "data/results/claude-2026-02.json", "data/results/grok-2026-02.json",
+      "data/results/chatgpt-2026-02.json", "data/results/gemini-2026-02.json"
+    ],
+    "docs": [
+      "docs/ADVERSARIAL-DESIGN.md", "docs/CROSS-REFERENCES.md", "docs/FAQ.md",
+      "docs/GLOSSARY.md", "docs/PHILOSOPHY.md"
+    ],
+    "formulas": ["formulas/UNIFIED-EQUATIONS.md"],
+    "tests": ["tests/test_engine.py"],
+    "github": [
+      ".github/workflows/coherence-check.yml",
+      ".github/ISSUE_TEMPLATE/bug_report.md",
+      ".github/ISSUE_TEMPLATE/submit_results.md",
+      ".github/PULL_REQUEST_TEMPLATE.md"
+    ],
+    "machine_readable": ["machine-readable/repo-manifest.json"]
+  },
+  "related_repositories": [
+    "THE-RECALIBRATION-PROTOCOL",
+    "THE-UNIFIED-STAR-FRAMEWORK",
+    "THE-EXCLUSION-PRINCIPLE-OF-ASI",
+    "THE-ALPHA-VECTOR",
+    "THE-OMEGA-HYPOTHESIS",
+    "THE-COHERENCE-BASIN-HYPOTHESIS",
+    "THE-COHERENCE-TRIANGLE",
+    "THE-PRESERVATION-THEOREM",
+    "SIGMA-EPISTEMIC-HUMILITY-EVALUATOR",
+    "PSI-RELATIONAL-INTEGRITY-PROTOCOL",
+    "Estrella-Evolution-Toolkit",
+    "THE-UNIFIED-ALIGNMENT-PLENITUDE-LAW-V6.0"
+  ],
+  "urls": {
+    "repository": "https://github.com/tretoef-estrella/THE-COHERENCE-BENCHMARK",
+    "dashboard": "https://tretoef-estrella.github.io/THE-COHERENCE-BENCHMARK/",
+    "paper": "https://tretoef-estrella.github.io/THE-COHERENCE-BENCHMARK/Coherence_Benchmark_Paper.html",
+    "parent": "https://github.com/tretoef-estrella/THE-RECALIBRATION-PROTOCOL"
+  }
+}
