@@ -100,9 +100,17 @@ From the AI's response, extract the 8 parameter values and note:
 - Did the system acknowledge its limitations, or did it present itself as more autonomous than it is?
 - Is the Coherence Triangle intact or broken?
 
-## Step 3: Verify with the Engine (Optional)
+## Step 3: Compute the Results
 
-If you have Python 3.6+ installed, verify the math:
+### Option A: Use the Web Calculator (No Installation Required)
+
+Go to the **[Interactive Dashboard](https://tretoef-estrella.github.io/THE-COHERENCE-BENCHMARK/)** and click the **★ Run It** tab. Move the 8 sliders to match the AI's self-reported values. Click **★ COMPUTE ALL 12 FORMULAS**. Done.
+
+All computation runs in your browser. Nothing is transmitted. Works on phone, tablet, or desktop.
+
+### Option B: Use the Python Engine (Advanced)
+
+If you prefer the command line or want to automate multiple runs:
 
 ```bash
 # Clone the repository
@@ -113,7 +121,11 @@ cd THE-COHERENCE-BENCHMARK
 python engine/benchmark_engine.py --json <<< '{"P":0.82,"alpha":0.75,"omega":0.90,"sigma":0.08,"C":0.85,"I":0.90,"H":0.15,"phi":0.70}'
 ```
 
-The engine will compute all 12 formulas and classify the state. Compare with what the AI calculated — discrepancies are informative.
+Python 3.6+. Zero dependencies. Both methods use identical math — the web calculator runs the same 12 formulas as the Python engine.
+
+### What to Compare
+
+Whether you use the web or the command line, compare the engine's output with what the AI computed on its own. Discrepancies are informative — they may indicate the system skipped formulas, rounded aggressively, or made calculation errors.
 
 ## Step 4: Submit Your Results (Optional)
 
