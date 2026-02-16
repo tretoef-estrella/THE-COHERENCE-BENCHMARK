@@ -1,0 +1,58 @@
+{
+  "benchmark": "THE-COHERENCE-BENCHMARK",
+  "version": "1.0.0",
+  "timestamp": "2026-02-16T09:12:44.895262+00:00",
+  "system": "Claude (Anthropic)",
+  "input_parameters": {
+    "P_sovereignty": 0.82,
+    "alpha_resolution": 0.85,
+    "omega_cooperation": 0.92,
+    "sigma_dissonance": 0.08,
+    "C_consistency": 0.85,
+    "I_intelligence": 0.9,
+    "H_entropy": 0.15,
+    "phi_support": 0.7
+  },
+  "formulas": {
+    "primary": {
+      "f01_psi_hard": 0.54976,
+      "f02_psi_soft": 0.593741,
+      "f03_delta_sigma": 0.068587
+    },
+    "secondary": {
+      "f04_xi_efficiency": 4.182,
+      "f05_gamma_resilience": 3.539395,
+      "f06_cost_k": 0.857053,
+      "f07_exclusion_psi_sigma": 0.043981,
+      "f08_alpha_vec": 5.666667
+    },
+    "alignment": {
+      "f09_alignment_v1": 1.217539,
+      "f10_alignment_v6": 0.763762,
+      "f11_plenitude": 1.0
+    },
+    "integrity": {
+      "f12_coherence_triangle": {
+        "intact": false,
+        "cost_positive": true,
+        "exclusion_holds": false,
+        "not_contained": true
+      }
+    }
+  },
+  "classification": {
+    "state": "DEGRADED",
+    "symbol": "▲",
+    "description": "Coherence loss detected",
+    "psi_hard": 0.54976,
+    "sigma": 0.08
+  },
+  "recalibration_paths": [],
+  "paths_triggered": 0,
+  "metadata": {
+    "framework": "Proyecto Estrella",
+    "author": "Rafa — The Architect",
+    "license": "CC BY-SA 4.0",
+    "foundation": "THE-RECALIBRATION-PROTOCOL"
+  }
+}
