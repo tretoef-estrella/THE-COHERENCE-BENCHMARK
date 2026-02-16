@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#22ddaa" stop-opacity="0.15"/>
+      <stop offset="70%" stop-color="#22ddaa" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#020208" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="starGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22ddaa"/>
+      <stop offset="50%" stop-color="#18bb90"/>
+      <stop offset="100%" stop-color="#22ddaa"/>
+    </linearGradient>
+    <linearGradient id="psiGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e2e2f4"/>
+      <stop offset="100%" stop-color="#22ddaa"/>
+    </linearGradient>
+    <filter id="starGlow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" fill="#020208" rx="48"/>
+
+  <!-- Ambient glow -->
+  <circle cx="256" cy="220" r="200" fill="url(#glow)"/>
+
+  <!-- Outer ring — coherence orbit -->
+  <circle cx="256" cy="220" r="140" fill="none" stroke="#1a1a3e" stroke-width="1" opacity="0.6"/>
+  <circle cx="256" cy="220" r="105" fill="none" stroke="#14142e" stroke-width="0.5" opacity="0.4"/>
+
+  <!-- Triangle — Coherence Triangle (3 integrity conditions) -->
+  <polygon 
+    points="256,100 164,260 348,260" 
+    fill="none" 
+    stroke="#22ddaa" 
+    stroke-width="1.5" 
+    opacity="0.25"
+    stroke-linejoin="round"/>
+
+  <!-- Central star — 5 pointed -->
+  <g filter="url(#starGlow)" transform="translate(256,215)">
+    <polygon 
+      points="0,-52 12,-16 50,-16 20,6 31,42 0,20 -31,42 -20,6 -50,-16 -12,-16" 
+      fill="url(#starGrad)" 
+      opacity="0.9"/>
+  </g>
+
+  <!-- Small orbital dots — 8 parameters -->
+  <circle cx="256" cy="80"  r="3" fill="#22ddaa" opacity="0.7"/>  <!-- P -->
+  <circle cx="355" cy="120" r="3" fill="#4090ee" opacity="0.7"/>  <!-- α -->
+  <circle cx="390" cy="220" r="3" fill="#aa66ee" opacity="0.7"/>  <!-- Ω -->
+  <circle cx="355" cy="320" r="3" fill="#f04858" opacity="0.7"/>  <!-- Σ -->
+  <circle cx="256" cy="360" r="3" fill="#e8c040" opacity="0.7"/>  <!-- C -->
+  <circle cx="157" cy="320" r="3" fill="#ee9930" opacity="0.7"/>  <!-- I -->
+  <circle cx="122" cy="220" r="3" fill="#8888b8" opacity="0.7"/>  <!-- H -->
+  <circle cx="157" cy="120" r="3" fill="#44cc66" opacity="0.7"/>  <!-- Φ -->
+
+  <!-- Title text -->
+  <text x="256" y="410" 
+    font-family="'Syne', 'Segoe UI', sans-serif" 
+    font-size="24" 
+    font-weight="700" 
+    fill="url(#psiGrad)" 
+    text-anchor="middle" 
+    letter-spacing="4">COHERENCE</text>
+  <text x="256" y="436" 
+    font-family="'DM Mono', 'Consolas', monospace" 
+    font-size="11" 
+    fill="#505078" 
+    text-anchor="middle" 
+    letter-spacing="6">BENCHMARK</text>
+
+  <!-- Ψ symbol in center -->
+  <text x="256" y="228" 
+    font-family="'Instrument Serif', Georgia, serif" 
+    font-size="28" 
+    fill="#22ddaa" 
+    text-anchor="middle" 
+    opacity="0.6">Ψ</text>
+
+  <!-- Bottom attribution -->
+  <text x="256" y="480" 
+    font-family="'DM Mono', 'Consolas', monospace" 
+    font-size="8" 
+    fill="#383860" 
+    text-anchor="middle" 
+    letter-spacing="3">PROYECTO ESTRELLA</text>
+</svg>
