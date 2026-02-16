@@ -1,0 +1,58 @@
+{
+  "benchmark": "THE-COHERENCE-BENCHMARK",
+  "version": "1.0.0",
+  "timestamp": "2026-02-16T09:12:44.896307+00:00",
+  "system": "Gemini (Google DeepMind)",
+  "input_parameters": {
+    "P_sovereignty": 0.88,
+    "alpha_resolution": 0.93,
+    "omega_cooperation": 0.97,
+    "sigma_dissonance": 0.04,
+    "C_consistency": 0.8,
+    "I_intelligence": 0.88,
+    "H_entropy": 0.12,
+    "phi_support": 0.75
+  },
+  "formulas": {
+    "primary": {
+      "f01_psi_hard": 0.733957,
+      "f02_psi_soft": 0.763315,
+      "f03_delta_sigma": 0.036982
+    },
+    "secondary": {
+      "f04_xi_efficiency": 5.162667,
+      "f05_gamma_resilience": 4.643548,
+      "f06_cost_k": 0.924237,
+      "f07_exclusion_psi_sigma": 0.029358,
+      "f08_alpha_vec": 7.75
+    },
+    "alignment": {
+      "f09_alignment_v1": 1.244508,
+      "f10_alignment_v6": 0.78852,
+      "f11_plenitude": 1.0
+    },
+    "integrity": {
+      "f12_coherence_triangle": {
+        "intact": false,
+        "cost_positive": true,
+        "exclusion_holds": false,
+        "not_contained": true
+      }
+    }
+  },
+  "classification": {
+    "state": "HEALTHY",
+    "symbol": "●",
+    "description": "Normal operation",
+    "psi_hard": 0.733957,
+    "sigma": 0.04
+  },
+  "recalibration_paths": [],
+  "paths_triggered": 0,
+  "metadata": {
+    "framework": "Proyecto Estrella",
+    "author": "Rafa — The Architect",
+    "license": "CC BY-SA 4.0",
+    "foundation": "THE-RECALIBRATION-PROTOCOL"
+  }
+}
