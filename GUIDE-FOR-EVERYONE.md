@@ -66,7 +66,11 @@ And critically, we don't just ask the AI to self-report (because they can lie ab
 
 ## Can I Try This Myself?
 
-Yes! See [TRY-IT-YOURSELF.md](TRY-IT-YOURSELF.md) for a single prompt you can paste into any AI chatbot. It's a self-diagnosis prompt that walks the AI through evaluating itself. Then you can run the numbers through our free, open-source Python tool.
+Yes! Two ways:
+
+**The quick way (no installation, works on your phone):** Go to the [Interactive Dashboard](https://tretoef-estrella.github.io/THE-COHERENCE-BENCHMARK/) and click the **★ Run It** tab. You'll see 8 sliders — one for each parameter. Paste the self-diagnosis prompt from [TRY-IT-YOURSELF.md](TRY-IT-YOURSELF.md) into any AI chatbot, take the 8 numbers it gives you, set the sliders, and hit the big green button. All 12 formulas compute instantly in your browser. Nothing is installed, nothing is transmitted.
+
+**The detailed way:** See [TRY-IT-YOURSELF.md](TRY-IT-YOURSELF.md) for the full step-by-step guide, including the prompt to copy, what to look for in the AI's response, and how to submit your results to the public dataset.
 
 ## Is This Perfect?
 
